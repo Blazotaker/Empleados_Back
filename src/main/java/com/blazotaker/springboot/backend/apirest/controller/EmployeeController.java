@@ -24,8 +24,13 @@ import com.blazotaker.springboot.backend.apirest.service.IEmployeeService;
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
+	
+	private final IEmployeeService employeeSerivice;
+	
 	@Autowired
-	private IEmployeeService employeeSerivice;
+	EmployeeController(IEmployeeService E) {
+		this.employeeSerivice = E;	
+	}
 	
 	@GetMapping("/status")
 	public String status() {
